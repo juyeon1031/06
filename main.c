@@ -3,18 +3,91 @@
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
-int square (int a)
+int factorial(int n)
 {
-	return(a*a);
+   int i, res=1;
+   for (i=1; i<=n; i++)
+   {
+      res = res * i;
+   }
+   return res; 
+}
+
+int combination (int n, int r)
+{
+ int n1, n2, n3;
+ 
+ n1 = factorial(n);
+ n2 = factorial(n-r);
+ n3 = factorial(r);
+ 
+ return (n1/n2/n3);
+}
+
+
+
+int get_integer()
+{
+   int x;
+   printf("input an integer:");
+   scanf("%i", &x);
+   
+   return x;
 }
 
 int main(int argc, char *argv[]){
-	int a = 2;
-	
-	a = square(a);
-	
-	printf("a=%i\n", a);
+ int n, r, result;
+ n=get_integer();
 
-	return 0;
+ r= get_integer();
 
+result = combination(n,r);
+
+printf("combination result is %i\n" , result);
+
+return 0;
+} 
+
+/*
+int get_integer()
+{
+	int a;
+	printf("input an integer:");
+	scanf("%i", &a);
+	return a;
 }
+
+int factorial(int n)
+{
+	int i=1;
+	int res = 1;
+	for(i=1;i<=n;i++)
+		res = res * i;
+	return res;
+}
+
+int combination(int n, int r)
+{
+	int n1, n2, n3, com;
+	n1 = factorial(n);
+	n2 = factorial(n-r);
+	n3 = factorial(r);
+	
+	com = n1/(n2*n3);
+	return com;
+}
+
+int main(int argc, char *argv[])
+{
+	int n, r, result;
+	
+	n= get_integer();
+	r=get_integer();
+	
+	result = combination(n, r);
+	
+	printf("the combination result is %i\n", result);
+	
+	return 0;
+}
+*/
